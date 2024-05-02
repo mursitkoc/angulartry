@@ -1,1 +1,29 @@
-<p>product works!</p>
+<div class="form-group">
+    <input 
+    class="form-control form-control-lg" 
+    type="text" 
+    placeholder=""
+    aria-label=".form-control example"
+    >
+</div>
+
+<h1 *ngIf="products.length; else noProduct">{{title}}</h1>
+<ng-template #noProduct>
+
+    <br>
+    <br>
+    <div class="alert alert-info" role="alert">
+        Bu kategoride ürün yoktur.!
+    </div>
+</ng-template>
+
+<div class="row">
+    <div *ngFor="let pr of products" class="card" style="width: 18rem;">
+        <img [src]="pr.imageUrl" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{pr.name}} - {{pr.price | currency:"TRY"}}</h5>
+            <p class="card-text">{{pr.description}}</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        </div>
+    </div>
