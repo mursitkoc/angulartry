@@ -5,7 +5,7 @@
     placeholder=""
     aria-label=".form-control example"
     >
-</div>
+</div>  
 
 <h1 *ngIf="products.length; else noProduct">{{title}}</h1>
 <ng-template #noProduct>
@@ -18,7 +18,7 @@
 </ng-template>
 
 <div class="row">
-    <div *ngFor="let pr of products" class="card" style="width: 18rem;">
+    <div *ngFor="let pr of products | productfilter:filterText" class="card" style="width: 18rem;">
         <img [src]="pr.imageUrl" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">{{pr.name}} - {{pr.price | currency:"TRY"}}</h5>
