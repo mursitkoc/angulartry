@@ -3,14 +3,12 @@
     class="form-control form-control-lg" 
     type="text" 
     placeholder=""
-    aria-label=".form-control example"
+    [(ngModel)]="filterText"    
     >
 </div>  
 
 <h1 *ngIf="products.length; else noProduct">{{title}}</h1>
 <ng-template #noProduct>
-
-    <br>
     <br>
     <div class="alert alert-info" role="alert">
         Bu kategoride ürün yoktur.!
