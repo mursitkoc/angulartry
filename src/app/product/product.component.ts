@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Product} from './product';
 import { ProductfilterPipe } from './productfilter.pipe';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [CommonModule,ProductfilterPipe],
+  imports: [CommonModule,ProductfilterPipe,FormsModule],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css',
 
