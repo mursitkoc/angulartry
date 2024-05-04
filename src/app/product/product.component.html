@@ -21,7 +21,7 @@
         <div class="card-body">
             <h5 class="card-title">{{pr.name}} - {{pr.price | currency:"TRY"}}</h5>
             <p class="card-text">{{pr.description}}</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <a (click)="addToCart(pr)" class="btn btn-primary">Sepete ekle</a>
             <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
         </div>
     </div>
