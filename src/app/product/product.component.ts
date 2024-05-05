@@ -4,6 +4,7 @@ import { Product } from './product';
 import { ProductfilterPipe } from './productfilter.pipe';
 import { FormsModule } from '@angular/forms';
 import { AlertifyService } from '../services/alertify.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-product',
@@ -11,11 +12,11 @@ import { AlertifyService } from '../services/alertify.service';
   imports: [CommonModule, ProductfilterPipe, FormsModule],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css',
-
+  providers: [HttpClient]
 })
 export class ProductComponent implements OnInit {
 
-  constructor(private alertifyService: AlertifyService) { }
+  constructor(private alertifyService: AlertifyService, private http: HttpClient) { }
   title = "Ürün Listesi"
   filterText = "";
   products: Product[] =
@@ -24,7 +25,9 @@ export class ProductComponent implements OnInit {
       { id: 1, name: "mouse", price: 500, categoryId: 1, description: "windos mouse", imageUrl: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?q=80&w=2067&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" }
     ]
   ngOnInit(): void {
-
+    this.http.get<Product[]>("http://localhost:3000/products").subscribe(data=>{
+      this.products = data;
+    })
   }
   addToCart(product: Product) {
     // alertify.alert('Ready!');
