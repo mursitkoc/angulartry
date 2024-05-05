@@ -4,7 +4,9 @@ import { Product } from './product';
 import { ProductfilterPipe } from './productfilter.pipe';
 import { FormsModule } from '@angular/forms';
 import { AlertifyService } from '../services/alertify.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
+import { ProductService } from '../services/product.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -12,21 +14,23 @@ import { HttpClient } from '@angular/common/http';
   imports: [CommonModule, ProductfilterPipe, FormsModule],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css',
-  providers: [HttpClient]
+  providers: [ProductService]
 })
 export class ProductComponent implements OnInit {
-
-  constructor(private alertifyService: AlertifyService, private http: HttpClient) { }
+  constructor(
+    private alertifyService: AlertifyService,
+    private productService: ProductService,
+    private activatedRoute: ActivatedRoute
+  ) { }
   title = "Ürün Listesi"
   filterText = "";
-  products: Product[] =
-    [
-      { id: 1, name: "laptop", price: 2500, categoryId: 1, description: "asus zenbook", imageUrl: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-      { id: 1, name: "mouse", price: 500, categoryId: 1, description: "windos mouse", imageUrl: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?q=80&w=2067&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" }
-    ]
+  products: Product[] = [];
+
   ngOnInit(): void {
-    this.http.get<Product[]>("http://localhost:3000/products").subscribe(data=>{
-      this.products = data;
+    this.activatedRoute.params.subscribe(params => {
+      this.productService.getProducts(params["categoryId"]).subscribe(data => {
+        this.products = data;
+      })
     })
   }
   addToCart(product: Product) {

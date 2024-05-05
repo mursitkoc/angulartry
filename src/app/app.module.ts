@@ -1,16 +1,14 @@
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
-import { HttpClient } from '@angular/common/http';
-
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    HttpClient
+    // BrowserModule,
   ],
-  bootstrap: [AppComponent],
-  // providers: [HttpClient]
+  bootstrap: [AppComponent,],
+  providers: []
 })
 export class AppModule { }
