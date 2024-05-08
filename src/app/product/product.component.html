@@ -17,8 +17,9 @@
 
 <div class="row">
     <div *ngFor="let pr of products | productfilter:filterText" class="card" style="width: 18rem;">
-        <img [src]="pr.imageUrl" class="card-img-top" alt="...">
+        
         <div class="card-body">
+            <img [src]="pr.imageUrl" class="card-img-top" alt="...">
             <h5 class="card-title">{{pr.name}} - {{pr.price | currency:"TRY"}}</h5>
             <p class="card-text">{{pr.description}}</p>
             <a (click)="addToCart(pr)" class="btn btn-primary">Sepete ekle</a>
