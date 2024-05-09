@@ -4,6 +4,7 @@ import { NavComponent } from './nav/nav.component';
 import { CategoryComponent } from './category/category.component';
 import { ProductComponent } from './product/product.component';
 import { HttpClientModule, provideHttpClient } from '@angular/common/http';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,10 @@ import { HttpClientModule, provideHttpClient } from '@angular/common/http';
     RouterOutlet,
     CategoryComponent,
     NavComponent,
-    ProductComponent,HttpClientModule,
+    SidebarComponent,
+    ProductComponent,
+    HttpClientModule,
+    RouterModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

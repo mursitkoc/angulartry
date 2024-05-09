@@ -4,14 +4,14 @@ import { Product } from './product';
 import { ProductfilterPipe } from './productfilter.pipe';
 import { FormsModule } from '@angular/forms';
 import { AlertifyService } from '../services/alertify.service';
-import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
 import { ProductService } from '../services/product.service';
 import { ActivatedRoute } from '@angular/router';
+import { CategoryComponent } from '../category/category.component';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [CommonModule, ProductfilterPipe, FormsModule],
+  imports: [CommonModule, ProductfilterPipe, FormsModule,CategoryComponent],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css',
   providers: [ProductService]
