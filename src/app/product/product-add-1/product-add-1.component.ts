@@ -22,17 +22,16 @@ export class ProductAdd1Component implements OnInit {
     private productService: ProductService,
     private alertifyService: AlertifyService 
   ) { }
-  product: Product = new Product(0, "", 0, 0, "", "");
+  productObj: Product = new Product(0, "", 0, 0, "", "");
   categories: Category[] = [];
 
   ngOnInit(): void {
     this.categoryService.getCategories().subscribe(data => {
-      console.log(data)
       this.categories = data;
     })
   }
   add(form: NgForm) {
-    this.productService.addProduct(this.product).subscribe(data => {
+    this.productService.addProduct(this.productObj).subscribe(data => {
       console.log(data)
       // this.product = new Product(data.id, data.name, data.price, data.categoryId,data.description,data.imageUrl );
       this.alertifyService.success(data.name +" added successfully")

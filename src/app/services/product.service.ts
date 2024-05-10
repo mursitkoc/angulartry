@@ -24,7 +24,6 @@ export class ProductService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': 'Token'
       })
       }
     return this.http.post<Product>(this.path, product, httpOptions).pipe(
