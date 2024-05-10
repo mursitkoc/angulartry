@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Product } from '../product';
 
 @Component({
   selector: 'app-product-add-2',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './product-add-2.component.html',
   styleUrl: './product-add-2.component.css'
 })
 export class ProductAdd2Component implements OnInit {
   constructor(private formBuilder:FormBuilder){}
 
-  productObj: Product = new Product(0, "", 0, 0, "", "");
+  productObj: Product = new Product();
   
   productAddForm = new FormGroup({
     id: new FormControl<number>(4,Validators.required),
@@ -30,7 +30,8 @@ export class ProductAdd2Component implements OnInit {
 
   add(){
     if(this.productAddForm.valid){
-      this.productObj = Object.assign({}, this.productAddForm.value)
+      this.productObj.id = this.productAddForm.value.id;
+      // this.productObj = Object.assign({}, this.productAddForm.value)
     }
   }
 

@@ -22,7 +22,7 @@ export class ProductAdd1Component implements OnInit {
     private productService: ProductService,
     private alertifyService: AlertifyService 
   ) { }
-  productObj: Product = new Product(0, "", 0, 0, "", "");
+  productObj: Product = new Product();
   categories: Category[] = [];
 
   ngOnInit(): void {
