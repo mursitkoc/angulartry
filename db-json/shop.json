@@ -25,12 +25,28 @@
       "imageUrl": "https://images.unsplash.com/photo-1519865885898-a54a6f2c7eea?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3BsYXNofGVufDB8fDB8fHww"
     },
     {
-      "id": 0,
+      "id": "0",
       "name": "nane",
       "price": "466",
       "categoryId": "2",
       "description": "çok iyi nane",
       "imageUrl": "https://media.istockphoto.com/id/1541688372/photo/3d-illustration-of-abstract-blue-water-splashing-on-black-background.webp?b=1&s=170667a&w=0&k=20&c=yuQ2LG9YX0U_lZ4Nvgq7Ix2_vrAckdlTQDxrL2BcXjg="
+    },
+    {
+      "id": "de97",
+      "name": "bisiklet",
+      "price": "456",
+      "categoryId": "3",
+      "description": "güzel bisiklet",
+      "imageUrl": "https://plus.unsplash.com/premium_photo-1677564813517-e186de82070d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmN5Y2xlfGVufDB8fDB8fHww"
+    },
+    {
+      "id": "5",
+      "name": "asd",
+      "price": "32434",
+      "categoryId": "3",
+      "description": "asas",
+      "imageUrl": "https://images.samsung.com/is/image/samsung/tr-top-mount-freezer-rt62k7040sl-rt62k7040sl-tr-frontsilver-99878282?$650_519_PNG$"
     }
   ],
   "categories": [
