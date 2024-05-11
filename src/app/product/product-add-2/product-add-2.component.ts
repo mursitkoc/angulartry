@@ -47,8 +47,6 @@ export class ProductAdd2Component implements OnInit {
       this.productObj = Object.assign({}, this.productAddForm.value)
     }
     this.productService.addProduct(this.productObj).subscribe(data => {
-      console.log(data)
-      // this.product = new Product(data.id, data.name, data.price, data.categoryId,data.description,data.imageUrl );
       this.alertifyService.success(data.name + " added successfully")
    }, error => {
       console.log(error)
