@@ -27,10 +27,10 @@ export class ProductAdd2Component implements OnInit {
   categories: Category[] = [];
 
   productAddForm: FormGroup = new FormGroup({
-    id: new FormControl<number>(4, Validators.required),
+    id: new FormControl<number|undefined>(undefined, Validators.required),
     name: new FormControl<string>("", Validators.required),
-    price: new FormControl<number>(0, Validators.required),
-    categoryId: new FormControl<number>(0, Validators.required),
+    price: new FormControl<number|undefined>(undefined, Validators.required),
+    categoryId: new FormControl<number|undefined>(undefined, Validators.required),
     description: new FormControl<string>("", Validators.required),
     imageUrl: new FormControl<string>("", Validators.required),
   })

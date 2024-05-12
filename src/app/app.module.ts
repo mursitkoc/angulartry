@@ -1,7 +1,8 @@
 import { NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
-import { RouterModule } from '@angular/router';
+import { AccountServiceService } from './services/account-service.service';
+import { loginGuard } from './services/login.guard';
 
 @NgModule({
   declarations: [],
@@ -9,7 +10,7 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     // BrowserModule,
   ],
-  bootstrap: [AppComponent,],
-  providers: []
+  bootstrap: [AppComponent],
+  providers: [AccountServiceService]
 })
 export class AppModule { }

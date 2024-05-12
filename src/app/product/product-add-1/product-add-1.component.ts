@@ -6,6 +6,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ProductService } from '../../services/product.service';
 import { AlertifyService } from '../../services/alertify.service';
+import { loginGuard } from '../../services/login.guard';
 
 @Component({
   selector: 'app-product-add-1',
