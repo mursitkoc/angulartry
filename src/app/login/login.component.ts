@@ -4,6 +4,7 @@ import { User } from './user';
 import { AlertifyService } from '../services/alertify.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ import { CommonModule } from '@angular/common';
 export class LoginComponent implements OnInit{
   constructor(
     private acountService:AccountServiceService,
-    private alertifyService:AlertifyService
+    private alertifyService:AlertifyService,
+    private router:Router
   ){}
 
   ngOnInit(): void {}
@@ -29,9 +31,12 @@ export class LoginComponent implements OnInit{
   
   login(){
     this.user = Object.assign({},this.userForm.value)
+    console.log(this.user.userName)
+    console.log(this.user.password)
+    console.log(this.acountService.isLoggedIn())
+    
     if(this.acountService.login(this.user)){
       this.alertifyService.success("Başarıyla giriş yapıldı")
-      
     } 
     else{
       this.alertifyService.error("Kullanıcı adı veya şifre hatalı")

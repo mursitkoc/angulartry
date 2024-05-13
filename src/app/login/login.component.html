@@ -9,12 +9,11 @@
         <h1 class="h3 mb-3 fw-normal">Log in</h1>
 
         <div class="form-floating">
-            <input formControlName="userName" type="email" class="form-control" name="userName" id="userName"
-                placeholder="name@example.com">
-            <label for="floatingInput">Email address</label>
+            <input formControlName="userName" type="text" class="form-control" name="userName" id="userName"
+                placeholder="Kullanıcı adı">
+            <label for="floatingInput">Kullanıcı adı</label>
             <div class="alert alert-danger"
-                *ngIf="userForm.get('userName')!.hasError('required') && userForm.get('userName')!.dirty"> Ürün adı
-                zorunludur</div>
+                *ngIf="userForm.get('userName')!.hasError('required') && userForm.get('userName')!.dirty"> Kullanıcı adı zorunludur</div>
         </div>
         <div class="form-floating">
             <input formControlName="password" type="password" class="form-control" name="password" id="password"
