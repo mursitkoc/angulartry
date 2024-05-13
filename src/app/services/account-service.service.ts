@@ -1,17 +1,17 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { User } from '../login/user';
-import { truncate } from 'node:fs';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable()
 export class AccountServiceService {
 
-  constructor() { }
-  loggedIn = false;
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) { }
   login(user: User): boolean {
     if (user.userName == "mursit" && user.password == "12345") {
-      this.loggedIn = true;
       if (user.userName == "mursit") {
-        localStorage.setItem("isLogged", user.userName);
+        window.localStorage.setItem("isLogged", user.userName);
       }
       return true;
     }
@@ -21,14 +21,17 @@ export class AccountServiceService {
 
   }
 
-  isLoggedIn() {
-    return localStorage.getItem("isLogged")=="mursit"
-    ? true
-    :false;
+  isLoggedIn(): boolean {
+    if (isPlatformBrowser(this.platformId)) {
+      return window.localStorage.getItem("isLogged") === "mursit"
+       ? true
+        : false;
+    } else {
+      return false;
+    }
   }
 
   logOut() {
-    localStorage.removeItem("isLogged");
-    this.loggedIn = false;
+    window.localStorage.removeItem("isLogged");
   }
 }
